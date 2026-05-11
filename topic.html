@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>话题详情 - 洛克王国手游攻略站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .back-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .topic-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .topic-tag {
+            font-size: 14px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .tag-guide { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
+        .tag-discuss { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .tag-share { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .tag-help { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .tag-event { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+        .topic-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .topic-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 25px;
+        }
+
+        .topic-content {
+            font-size: 16px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: pre-wrap;
+        }
+
+        .topic-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reply-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .reply-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .like-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: #fff;
+        }
+
+        .like-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .reply-form {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reply-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 80px;
+            box-sizing: border-box;
+        }
+
+        .reply-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .reply-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: flex-end;
+        }
+
+        .submit-reply-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-reply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cancel-reply-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cancel-reply-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .replies-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .replies-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .replies-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .reply-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .reply-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .reply-author {
+            font-size: 14px;
+            color: #ffd700;
+            font-weight: 500;
+        }
+
+        .reply-time {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .reply-content {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .related-topics {
+            margin-top: 40px;
+        }
+
+        .related-topics h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .related-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .related-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .related-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .related-item a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .related-item span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <span class="logo">🐾 洛克王国攻略站</span>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="index.html#pets">宠物图鉴</a>
+                <a href="index.html#guide">新手攻略</a>
+                <a href="all_topics.html">社区话题</a>
+            </nav>
+            <a href="all_topics.html" class="back-btn">← 返回话题列表</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="topic-card" id="topicContent">
+            <div class="topic-header">
+                <span class="topic-tag tag-guide" id="topicTag">攻略</span>
+            </div>
+            <h1 class="topic-title" id="topicTitle">话题标题</h1>
+            <div class="topic-meta">
+                <span id="topicReplies">💬 0 回复</span>
+                <span id="topicTime">刚刚</span>
+                <span id="topicLikes">❤️ 0</span>
+            </div>
+            <div class="topic-content" id="topicBody">话题内容...</div>
+            <div class="topic-actions">
+                <button class="action-btn reply-btn" onclick="showReplyForm()">💬 回复</button>
+                <button class="action-btn like-btn" onclick="likeTopic()">❤️ 点赞</button>
+            </div>
+            
+            <div class="reply-form" id="replyForm" style="display: none;">
+                <textarea placeholder="写下你的回复..." id="replyContent" rows="3"></textarea>
+                <div class="reply-actions">
+                    <button class="submit-reply-btn" onclick="submitReply()">发送回复</button>
+                    <button class="cancel-reply-btn" onclick="hideReplyForm()">取消</button>
+                </div>
+            </div>
+            
+            <div class="replies-section" id="repliesSection">
+                <h3>💬 评论区</h3>
+                <div class="replies-list" id="repliesList">
+                    <div class="reply-item">
+                        <div class="reply-header">
+                            <span class="reply-author">洛克小勇士</span>
+                            <span class="reply-time">2天前</span>
+                        </div>
+                        <p class="reply-content">感谢分享！这个攻略很详细，新手受益匪浅！</p>
+                    </div>
+                    <div class="reply-item">
+                        <div class="reply-header">
+                            <span class="reply-author">喵喵爱好者</span>
+                            <span class="reply-time">1天前</span>
+                        </div>
+                        <p class="reply-content">补充一下，喵喵真的很强，建议新手首选！</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <section class="related-topics">
+            <h3>📚 相关话题</h3>
+            <div class="related-list" id="relatedTopics">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const topics = {
+            'guide-30level': {
+                tag: '攻略',
+                title: '【攻略】零氪速冲30级全流程攻略',
+                replies: '1.2k',
+                time: '3天前',
+                content: '新手必备！从零开始的洛克王国冒险之旅，带你快速升级。\n\n【升级路线】\n1. 新手教程（1-10级）\n- 跟随主线任务\n- 熟悉游戏操作\n- 获得初始精灵\n\n2. 宠物园刷野怪（10-20级）\n- 捕捉喵喵、火花、水蓝蓝\n- 组队刷级效率更高\n- 完成每日任务\n\n3. 矿山深处挑战（20-30级）\n- 挑战BOSS获得大量经验\n- 完成剧情副本\n- 解锁更多功能\n\n【推荐宠物】\n• 火花：火系高爆发，前期清场快\n• 喵喵：持续回复，续航能力强\n• 罗隐：PVE天花板，40级强力推荐\n\n【注意事项】\n• 每天完成日常任务获取双倍经验\n• 合理使用经验果和强化道具\n• 加入公会获取额外加成\n• 组队刷级效率比单人高50%'
+            },
+            'discuss-start': {
+                tag: '讨论',
+                title: '【讨论】初始精灵选择哪个好？',
+                replies: '892',
+                time: '2天前',
+                content: '火花、水蓝蓝、喵喵三选一，大家觉得哪个最香？\n\n🔥 火花：\n- 火系高爆发输出\n- 前期清场速度快\n- 后期可进化为烈火战神\n- 属性克制草系和冰系\n\n💧 水蓝蓝：\n- 水系续航能力强\n- 技能能耗低\n- 打BOSS非常好用\n- 属性克制火系和地面系\n\n🌿 喵喵：\n- 草系持续回复\n- 泛用性强适合新手\n- 可以学习多种辅助技能\n- 属性克制水系和地面系\n\n💡 个人建议：\n- 新手推荐喵喵，生存能力强\n- 喜欢暴力输出选火花\n- 准备打BOSS选水蓝蓝'
+            },
+            'share-wolf': {
+                tag: '分享',
+                title: '【分享】抓到异色狼王啦！',
+                replies: '567',
+                time: '1天前',
+                content: '蹲了三天终于抓到，异色真的太帅了！附捕捉心得。\n\n【捕捉地点】\n眠枭庇护所 - 夜间出现概率更高\n\n【捕捉技巧】\n1. 携带带有"慈悲为怀"技能的宠物\n2. 准备足够的高级咕噜球\n3. 注意宠物血量控制在10%以下\n4. 建议使用催眠技能提高捕获率\n\n【异色概率】\n据说只有0.1%的概率，太幸运了！\n\n【宠物培养】\n- 性格推荐：固执/开朗\n- 努力值加点：攻击+速度\n- 推荐配招：撕咬、暗影爪、突进、愤怒'
+            },
+            'help-wing': {
+                tag: '求助',
+                title: '【求助】翼王BOSS怎么打？',
+                replies: '423',
+                time: '12小时前',
+                content: '卡在翼王这里了，求大佬指点阵容搭配。\n\n【BOSS信息】\n• 属性：翼系\n• 等级：45级\n• 技能：风之打击、空气切割、燕返、飞翔\n• 特性：每回合回复少量血量\n\n【我的阵容】\n• 罗隐38级（地+恶系）\n• 奇丽花35级（草系）\n• 音速犬32级（火系）\n\n【遇到的问题】\n翼王速度太快，总是先手攻击\n我的宠物扛不住几回合\n\n求指点打法！有没有克制翼系的宠物推荐？'
+            },
+            'event-pass': {
+                tag: '活动',
+                title: '【活动】S1赛季通行证值得买吗？',
+                replies: '318',
+                time: '8小时前',
+                content: '通行证奖励全解析，看看是否物有所值。\n\n【通行证奖励】\n• 传说精灵：龙息帕尔\n• 限定皮肤：暗夜使者套装\n• 大量钻石和金币\n• 专属头像框和称号\n• 经验加成buff\n\n【性价比分析】\n普通通行证：\n- 价格：免费\n- 奖励：基础奖励，不含龙息帕尔\n\n豪华通行证：\n- 价格：68元\n- 奖励：全部奖励，包含龙息帕尔\n\n【购买建议】\n• 微氪玩家：推荐购买豪华版\n• 零氪玩家：免费版也能玩\n• 追求全图鉴：必买豪华版\n\n建议有条件的玩家购买豪华版，龙息帕尔强度非常高！'
+            },
+            'guide-daily': {
+                tag: '攻略',
+                title: '【攻略】每日必做任务汇总',
+                replies: '256',
+                time: '6小时前',
+                content: '金币、钻石、经验最大化攻略，每日10分钟轻松搞定。\n\n【每日任务】\n• 日常任务（必做）- 基础经验和金币\n• 副本挑战 - 装备和材料\n• 宠物探索 - 稀有道具\n• 活跃度奖励 - 钻石和抽奖券\n• 竞技场 - 竞技币和荣誉\n\n【每周任务】\n• 周常副本 - 高级装备\n• 公会任务 - 公会贡献\n• 限时活动 - 限定奖励\n• 组队副本 - 稀有精灵\n\n【资源获取技巧】\n• 每天优先完成活跃度满100\n• 合理安排体力使用\n• 组队刷副本效率更高\n• 关注限时活动不要错过'
+            }
+        };
+
+        function getTopicId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id') || 'guide-30level';
+        }
+
+        function displayTopic() {
+            const topicId = getTopicId();
+            
+            if (topicId === 'user-post') {
+                const userPost = JSON.parse(localStorage.getItem('currentTopic') || '{}');
+                if (userPost.title) {
+                    document.getElementById('topicTitle').textContent = userPost.title;
+                    document.getElementById('topicReplies').textContent = '💬 ' + (userPost.replies || '0') + ' 回复';
+                    document.getElementById('topicTime').textContent = userPost.time || '刚刚';
+                    document.getElementById('topicBody').textContent = userPost.content;
+                    
+                    const tagElement = document.getElementById('topicTag');
+                    tagElement.textContent = userPost.tag || '其他';
+                    
+                    const tagClasses = {
+                        '攻略教程': 'tag-guide',
+                        '阵容分享': 'tag-discuss',
+                        '探索发现': 'tag-share',
+                        '活动攻略': 'tag-event',
+                        '其他': 'tag-help',
+                        '攻略': 'tag-guide',
+                        '讨论': 'tag-discuss',
+                        '分享': 'tag-share',
+                        '求助': 'tag-help',
+                        '活动': 'tag-event'
+                    };
+                    
+                    tagElement.className = 'topic-tag ' + (tagClasses[userPost.tag] || 'tag-help');
+                    
+                    document.querySelector('.related-topics').style.display = 'none';
+                    return;
+                }
+            }
+            
+            const topic = topics[topicId] || topics['guide-30level'];
+            
+            document.getElementById('topicTitle').textContent = topic.title;
+            document.getElementById('topicReplies').textContent = '💬 ' + topic.replies + ' 回复';
+            document.getElementById('topicTime').textContent = topic.time;
+            document.getElementById('topicBody').textContent = topic.content;
+            
+            const tagElement = document.getElementById('topicTag');
+            tagElement.textContent = topic.tag;
+            
+            const tagClasses = {
+                '攻略': 'tag-guide',
+                '讨论': 'tag-discuss',
+                '分享': 'tag-share',
+                '求助': 'tag-help',
+                '活动': 'tag-event'
+            };
+            
+            tagElement.className = 'topic-tag ' + (tagClasses[topic.tag] || 'tag-guide');
+            
+            displayRelatedTopics(topicId);
+        }
+
+        function displayRelatedTopics(currentId) {
+            const relatedList = document.getElementById('relatedTopics');
+            const otherTopics = Object.keys(topics).filter(id => id !== currentId);
+            
+            otherTopics.forEach(id => {
+                const topic = topics[id];
+                const item = document.createElement('div');
+                item.className = 'related-item';
+                item.innerHTML = `<a href="topic.html?id=${id}"><span>${topic.title}</span><span>${topic.replies}</span></a>`;
+                relatedList.appendChild(item);
+            });
+        }
+
+        displayTopic();
+
+        let likeCount = 0;
+
+        function showReplyForm() {
+            document.getElementById('replyForm').style.display = 'block';
+        }
+
+        function hideReplyForm() {
+            document.getElementById('replyForm').style.display = 'none';
+            document.getElementById('replyContent').value = '';
+        }
+
+        function submitReply() {
+            const content = document.getElementById('replyContent').value.trim();
+            
+            if (!content) {
+                alert('请输入回复内容');
+                return;
+            }
+
+            const repliesList = document.getElementById('repliesList');
+            const newReply = document.createElement('div');
+            newReply.className = 'reply-item';
+            newReply.innerHTML = `
+                <div class="reply-header">
+                    <span class="reply-author">匿名玩家</span>
+                    <span class="reply-time">刚刚</span>
+                </div>
+                <p class="reply-content">${content}</p>
+            `;
+            
+            repliesList.insertBefore(newReply, repliesList.firstChild);
+            hideReplyForm();
+            
+            updateReplyCount();
+            alert('回复成功！');
+        }
+
+        function updateReplyCount() {
+            const repliesElement = document.getElementById('topicReplies');
+            const currentText = repliesElement.textContent;
+            const match = currentText.match(/(\d+(?:\.\d+)?k?)/);
+            if (match) {
+                let count = parseFloat(match[1].replace('k', ''));
+                if (match[1].includes('k')) {
+                    count = (count * 1000 + 1) / 1000;
+                    repliesElement.textContent = `💬 ${count}k 回复`;
+                } else {
+                    count = parseInt(match[1]) + 1;
+                    repliesElement.textContent = `💬 ${count} 回复`;
+                }
+            }
+        }
+
+        function likeTopic() {
+            likeCount++;
+            const likesElement = document.getElementById('topicLikes');
+            likesElement.textContent = `❤️ ${likeCount}`;
+            
+            const likeBtn = document.querySelector('.like-btn');
+            likeBtn.style.background = 'linear-gradient(135deg, #ff4757, #ff6b81)';
+            likeBtn.innerHTML = '❤️ 已点赞';
+            likeBtn.disabled = true;
+            
+            alert('点赞成功！');
+        }
+    </script>
+</body>
+</html>

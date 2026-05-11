@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛克王国手游攻略站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bgMusic" loop></audio>
+    <div class="music-player" id="musicPlayer">
+        <button id="musicBtn" class="music-toggle" title="切换播放">🎵</button>
+        <div class="music-panel" id="musicPanel">
+            <div class="panel-header">
+                <span>🎵 背景音乐</span>
+                <button class="close-panel" id="closePanel">✕</button>
+            </div>
+            <div class="music-list">
+                <div class="music-item active" data-src="music/登陆界面_登陆界面四.wav">
+                    <span class="music-icon">🎮</span>
+                    <span class="music-name">登陆界面四</span>
+                </div>
+                <div class="music-item" data-src="music/登陆界面_登陆界面二.wav">
+                    <span class="music-icon">🎮</span>
+                    <span class="music-name">登陆界面二</span>
+                </div>
+                <div class="music-item" data-src="music/登陆界面_登陆界面五.wav">
+                    <span class="music-icon">🎮</span>
+                    <span class="music-name">登陆界面五</span>
+                </div>
+                <div class="music-item" data-src="music/小游戏通用音乐_小游戏通用音乐一.wav">
+                    <span class="music-icon">🎮</span>
+                    <span class="music-name">小游戏通用音乐</span>
+                </div>
+                <div class="music-item" data-src="music/旅途播片_山洞苏醒.wav">
+                    <span class="music-icon">⛰️</span>
+                    <span class="music-name">山洞苏醒</span>
+                </div>
+                <div class="music-item" data-src="music/旅途播片_比特流星.wav">
+                    <span class="music-icon">🌠</span>
+                    <span class="music-name">比特流星</span>
+                </div>
+                <div class="music-item" data-src="music/神兽登场_凡鹰登场音乐.wav">
+                    <span class="music-icon">🦅</span>
+                    <span class="music-name">凡鹰登场</span>
+                </div>
+                <div class="music-item" data-src="music/神兽登场_龙息登场音乐.wav">
+                    <span class="music-icon">🐉</span>
+                    <span class="music-name">龙息登场</span>
+                </div>
+                <div class="music-item" data-src="music/预渲染CG_CG_商店街音乐.wav">
+                    <span class="music-icon">🏪</span>
+                    <span class="music-name">商店街音乐</span>
+                </div>
+                <div class="music-item" data-src="music/预渲染CG_CG_翼王空战音乐.wav">
+                    <span class="music-icon">⚔️</span>
+                    <span class="music-name">翼王空战</span>
+                </div>
+                <div class="music-item" data-src="music/风格化CG音乐_风格化CG上段音乐.wav">
+                    <span class="music-icon">🎼</span>
+                    <span class="music-name">风格化CG上段</span>
+                </div>
+                <div class="music-item" data-src="music/风格化CG音乐_风格化CG下段音乐.wav">
+                    <span class="music-icon">🎹</span>
+                    <span class="music-name">风格化CG下段</span>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <span id="currentMusic">当前：登陆界面四</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="image/logo.jpg" alt="洛克王国">
+            <span>洛克王国手游攻略站</span>
+        </div>
+        <nav class="nav">
+            <input type="text" class="search-box" placeholder="搜索精灵、攻略、地图...">
+            <a href="#home">首页</a>
+            <a href="#pets">宠物图鉴</a>
+            <a href="#guide">新手攻略</a>
+            <a href="#battle">战斗攻略</a>
+            <a href="#explore">地图探索</a>
+            <a href="#mount">骑乘代步</a>
+            <a href="#resources">资源管理</a>
+            <a href="#season">赛季活动</a>
+            <a href="#community">玩家社区</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="banner">
+                <div class="banner-carousel">
+                    <div class="carousel-item active">
+                        <img src="image/定档宣传海报.png" alt="洛克王国定档宣传">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image/三测宣传海报.jfif" alt="三测宣传">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image/S1.jpg" alt="S1赛季开启">
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-index="0"></button>
+                    <button class="indicator" data-index="1"></button>
+                    <button class="indicator" data-index="2"></button>
+                </div>
+                <button class="carousel-prev">‹</button>
+                <button class="carousel-next">›</button>
+            </div>
+
+            <div class="quick-entries">
+                <a href="#pets" class="entry-card">
+                    <div class="entry-icon">🐾</div>
+                    <h3>宠物图鉴</h3>
+                    <p>全精灵数据库</p>
+                </a>
+                <a href="#guide" class="entry-card">
+                    <div class="entry-icon">🎮</div>
+                    <h3>新手攻略</h3>
+                    <p>0-30级开荒指南</p>
+                </a>
+                <a href="#explore" class="entry-card">
+                    <div class="entry-icon">🗺️</div>
+                    <h3>地图探索</h3>
+                    <p>精灵分布地图</p>
+                </a>
+                <a href="#battle" class="entry-card">
+                    <div class="entry-icon">⚔️</div>
+                    <h3>战斗攻略</h3>
+                    <p>阵容搭配与BOSS攻克</p>
+                </a>
+            </div>
+
+            <div class="main-content">
+                <div class="left-panel">
+                    <div class="news-section">
+                        <h2 class="section-title">📢 最新公告</h2>
+                        <div class="news-list">
+                            <div class="news-item">
+                                <span class="news-tag">更新</span>
+                                <span>S1赛季「暗夜拾光」正式开启</span>
+                                <span class="news-time">2026-03-26</span>
+                            </div>
+                            <div class="news-item">
+                                <span class="news-tag">活动</span>
+                                <span>传说精灵「龙息帕尔」免费领取</span>
+                                <span class="news-time">2026-03-25</span>
+                            </div>
+                            <div class="news-item">
+                                <span class="news-tag">攻略</span>
+                                <span>翼王BOSS攻克指南发布</span>
+                                <span class="news-time">2026-03-24</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hot-section">
+                        <h2 class="section-title">🔥 热门攻略</h2>
+                        <div class="hot-list">
+                            <a href="#guide" class="hot-item">
+                                <span class="hot-rank">1</span>
+                                <span>零氪速冲30级全流程攻略</span>
+                            </a>
+                            <a href="#pets" class="hot-item">
+                                <span class="hot-rank">2</span>
+                                <span>必抓精灵推荐榜</span>
+                            </a>
+                            <a href="#battle" class="hot-item">
+                                <span class="hot-rank">3</span>
+                                <span>属性克制关系详解</span>
+                            </a>
+                            <a href="#explore" class="hot-item">
+                                <span class="hot-rank">4</span>
+                                <span>地图资源分布大全</span>
+                            </a>
+                            <a href="#season" class="hot-item">
+                                <span class="hot-rank">5</span>
+                                <span>S1赛季限定精灵捕捉指南</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="season-section">
+                        <div class="season-header">
+                            <h2>S1赛季 · 暗夜拾光</h2>
+                            <span class="season-date">2026.3.26 - 2026.5.21</span>
+                        </div>
+                        <div class="season-content">
+                            <div class="season-pet">
+                                <img src="image/1/帕尔萨斯/龙息帕尔.png" alt="龙息帕尔">
+                                <span>传说精灵「龙息帕尔」免费领取</span>
+                            </div>
+                            <div class="season-tips">
+                                <p>🎯 赛季委托：恶系研究员「露萌」的委托</p>
+                                <p>⭐ 8只新精灵 + 16种限时异色精灵</p>
+                                <p>🏆 通行证奖励路线全面解析</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-section">
+                        <h2 class="section-title">💡 今日小贴士</h2>
+                        <div class="tips-content">
+                            <p>✨ 今日运势：捕捉成功率+15%</p>
+                            <p>🌙 推荐捕捉时间：黄昏时段</p>
+                            <p>📍 推荐地点：眠枭庇护所</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pets" class="pets-section">
+            <div class="section-header">
+                <h2>🐾 宠物图鉴</h2>
+                <div class="filter-bar">
+                    <select class="filter-select" id="attrFilter">
+                        <option value="all">全部属性</option>
+                        <option value="fire">🔥 火系</option>
+                        <option value="water">💧 水系</option>
+                        <option value="grass">🌿 草系</option>
+                        <option value="electric">⚡ 电系</option>
+                        <option value="ice">❄️ 冰系</option>
+                        <option value="flying">🪽 翼系</option>
+                        <option value="dark">🌑 恶系</option>
+                        <option value="dragon">🐉 龙系</option>
+                        <option value="psychic">✨ 幻系</option>
+                        <option value="light">☀️ 光系</option>
+                        <option value="normal">⭐ 普通系</option>
+                        <option value="ghost">🌙 幽系</option>
+                        <option value="poison">☠️ 毒系</option>
+                        <option value="bug">🐞 虫系</option>
+                        <option value="cute">🥰 萌系</option>
+                        <option value="fight">⚔️ 武系</option>
+                        <option value="mechan">⚙️ 机械系</option>
+                        <option value="ground">🏔️ 土系</option>
+                    </select>
+                    <select class="filter-select" id="typeFilter">
+                        <option value="all">全部类型</option>
+                        <option value="pve">PVE主力</option>
+                        <option value="explore">探索专用</option>
+                        <option value="mount">代步坐骑</option>
+                        <option value="pvp">PVP对战</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pets-grid" id="petsGrid">
+                <div class="pet-card" data-attr="fire" data-type="pve" data-name="火花" data-evolution="火花进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/火花/火花.png" alt="火花">
+                    </div>
+                    <div class="pet-info">
+                        <h3>火花</h3>
+                        <span class="pet-attr">🔥 火系</span>
+                        <p>特性「助燃」，使用火系技能后双攻+20%，高爆发输出</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="pve" data-name="水蓝蓝" data-evolution="水蓝蓝进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/水蓝蓝进化链/水蓝蓝.png" alt="水蓝蓝">
+                    </div>
+                    <div class="pet-info">
+                        <h3>水蓝蓝</h3>
+                        <span class="pet-attr">💧 水系</span>
+                        <p>特性「浸润」，使用水系技能后全技能能耗-1，续航强</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="grass" data-type="pve" data-name="喵喵" data-evolution="喵喵进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/喵喵/喵喵.png" alt="喵喵">
+                    </div>
+                    <div class="pet-info">
+                        <h3>喵喵</h3>
+                        <span class="pet-attr">🌿 草系</span>
+                        <p>特性「氧循环」，使用草系技能后回复10%生命，均衡通用</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ground" data-type="pve" data-name="罗隐" data-evolution="阿米亚特进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/阿米亚特/罗隐.png" alt="罗隐">
+                    </div>
+                    <div class="pet-info">
+                        <h3>罗隐</h3>
+                        <span class="pet-attr">🌑 地+恶系</span>
+                        <p>特性「石头大餐」，PVE天花板，40级固执性格强力推荐</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="grass" data-type="pve" data-name="奇丽花" data-evolution="奇丽草进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/奇丽草进化链/奇丽花.png" alt="奇丽花">
+                    </div>
+                    <div class="pet-info">
+                        <h3>奇丽花</h3>
+                        <span class="pet-attr">🌿 草系</span>
+                        <p>特性「养分重吸收」，每回合回复3能量，超强续航</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="normal" data-type="mount" data-name="鸭吉吉" data-evolution="鸭吉吉进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/鸭吉吉进化链/鸭吉吉（燃了鸭）.png" alt="鸭吉吉">
+                    </div>
+                    <div class="pet-info">
+                        <h3>鸭吉吉</h3>
+                        <span class="pet-attr">⭐ 普通系</span>
+                        <p>特性「挺起胸脯」，能耗为1的技能威力+50%，低耗连击核心</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="fire" data-type="mount" data-name="音速犬" data-evolution="护主犬进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/音速犬/音速犬.png" alt="音速犬">
+                    </div>
+                    <div class="pet-info">
+                        <h3>音速犬</h3>
+                        <span class="pet-attr">🔥 火系</span>
+                        <p>特性「专注力」，首回合物攻提升200%，速攻流核心</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="dragon" data-type="pvp" data-name="龙息帕尔" data-evolution="小帕尔进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/帕尔萨斯/龙息帕尔.png" alt="龙息帕尔">
+                    </div>
+                    <div class="pet-info">
+                        <h3>龙息帕尔</h3>
+                        <span class="pet-attr">🐉 龙系</span>
+                        <p>S1赛季传说精灵，完成赛季委托免费领取</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="fight" data-type="pvp" data-name="瞌睡王" data-evolution="白发懒人进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/白发懒人/瞌睡王.png" alt="瞌睡王">
+                    </div>
+                    <div class="pet-info">
+                        <h3>瞌睡王</h3>
+                        <span class="pet-attr">⭐ 普通+武系</span>
+                        <p>特性「慢热」能量累积，后期爆发强，白发懒人进化</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="explore" data-name="双灯鱼" data-evolution="双灯鱼进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/双灯鱼/双灯鱼.png" alt="双灯鱼">
+                    </div>
+                    <div class="pet-info">
+                        <h3>双灯鱼</h3>
+                        <span class="pet-attr">💧 水+电系</span>
+                        <p>「电吸」技能续航，水系地图探索专用，夜间捕捉</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="electric" data-type="explore" data-name="电咩咩" data-evolution="电咩咩进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/电咩咩/电咩咩.png" alt="电咩咩">
+                    </div>
+                    <div class="pet-info">
+                        <h3>电咩咩</h3>
+                        <span class="pet-attr">⚡ 电系</span>
+                        <p>电系探索必备，可穿越电属性障碍，新手期高频出现</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ice" data-type="pve" data-name="月牙雪熊" data-evolution="月牙雪熊进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/月牙雪熊进化链/月牙雪熊.png" alt="月牙雪熊">
+                    </div>
+                    <div class="pet-info">
+                        <h3>月牙雪熊</h3>
+                        <span class="pet-attr">❄️ 冰系</span>
+                        <p>S1赛季限定精灵，冰系强力输出，眠枭庇护所捕捉</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="grass" data-type="pve" data-name="格兰花" data-evolution="格兰种子进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/格兰种子进化链/格兰花.png" alt="格兰花">
+                    </div>
+                    <div class="pet-info">
+                        <h3>格兰花</h3>
+                        <span class="pet-attr">🌿 草系</span>
+                        <p>草系强力控制，高速先手，推荐性格胆小</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ice" data-type="pve" data-name="雪影娃娃" data-evolution="大耳帽兜进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/大耳帽兜进化链/雪影娃娃.png" alt="雪影娃娃">
+                    </div>
+                    <div class="pet-info">
+                        <h3>雪影娃娃</h3>
+                        <span class="pet-attr">❄️ 冰系</span>
+                        <p>冰系颜值担当，高输出高爆发，PK热门选择</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="light" data-type="pvp" data-name="圣光迪莫" data-evolution="迪莫进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/迪莫进化链/圣光迪莫.png" alt="圣光迪莫">
+                    </div>
+                    <div class="pet-info">
+                        <h3>圣光迪莫</h3>
+                        <span class="pet-attr">☀️ 光系</span>
+                        <p>光系传说精灵，专属技能「光影斩杀」输出爆炸</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="flying" data-type="pve" data-name="圣羽翼王" data-evolution="里奥进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/里奥进化链/圣羽翼王.png" alt="圣羽翼王">
+                    </div>
+                    <div class="pet-info">
+                        <h3>圣羽翼王</h3>
+                        <span class="pet-attr">🪽 翼系</span>
+                        <p>翼系BOSS，魔法手册解锁，冰系/电系克制</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="dark" data-type="pvp" data-name="恶魔狼王" data-evolution="恶魔狼进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/恶魔狼进化链/恶魔狼王.png" alt="恶魔狼王">
+                    </div>
+                    <div class="pet-info">
+                        <h3>恶魔狼王</h3>
+                        <span class="pet-attr">🌑 恶系</span>
+                        <p>恶系强力输出，暗黑系精灵，高攻击高爆发</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="pve" data-name="水灵" data-evolution="水蓝蓝进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/水蓝蓝进化链/水灵.png" alt="水灵">
+                    </div>
+                    <div class="pet-info">
+                        <h3>水灵</h3>
+                        <span class="pet-attr">💧 水系</span>
+                        <p>水系最终进化，高防御高续航，PVE实用精灵</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="fire" data-type="pve" data-name="烈火战神" data-evolution="火花进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/火花/烈火战神.png" alt="烈火战神">
+                    </div>
+                    <div class="pet-info">
+                        <h3>烈火战神</h3>
+                        <span class="pet-attr">🔥 火系</span>
+                        <p>火系最终进化，魔攻超高，火系技能威力最大化</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="grass" data-type="pve" data-name="魔力喵" data-evolution="喵喵进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/喵喵/魔力喵.png" alt="魔力喵">
+                    </div>
+                    <div class="pet-info">
+                        <h3>魔力喵</h3>
+                        <span class="pet-attr">🌿 草系</span>
+                        <p>草系最终进化，均衡发展，辅助输出两不误</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="bug" data-type="pve" data-name="卡瓦重" data-evolution="丢丢进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/丢丢进化链/卡瓦重（草地附近的样子）.png" alt="卡瓦重">
+                    </div>
+                    <div class="pet-info">
+                        <h3>卡瓦重</h3>
+                        <span class="pet-attr">🐞 虫系</span>
+                        <p>特性「慈悲为怀」，抓宠必备，血量控制精准</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ghost" data-type="pve" data-name="夜枭" data-evolution="空空颅进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/空空颅进化链/夜枭.png" alt="夜枭">
+                    </div>
+                    <div class="pet-info">
+                        <h3>夜枭</h3>
+                        <span class="pet-attr">🌙 幽系</span>
+                        <p>S1赛季限定，幽系输出，暗夜拾光主题精灵</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="poison" data-type="explore" data-name="嗜光嗡嗡" data-evolution="嗜光嗡嗡进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/嗜光嗡嗡进化链/嗜光嗡嗡.png" alt="嗜光嗡嗡">
+                    </div>
+                    <div class="pet-info">
+                        <h3>嗜光嗡嗡</h3>
+                        <span class="pet-attr">☠️ 毒系</span>
+                        <p>S1赛季限定，毒系精灵，夜间捕捉推荐</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="cute" data-type="pve" data-name="粉粉星" data-evolution="粉粉星进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/粉粉星进化链/粉粉星.png" alt="粉粉星">
+                    </div>
+                    <div class="pet-info">
+                        <h3>粉粉星</h3>
+                        <span class="pet-attr">🥰 萌系</span>
+                        <p>S1赛季限定，萌系可爱精灵，粉色主题</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="cute" data-type="pvp" data-name="粉星仔" data-evolution="粉星仔进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/粉星仔进化链/粉星仔.png" alt="粉星仔">
+                    </div>
+                    <div class="pet-info">
+                        <h3>粉星仔</h3>
+                        <span class="pet-attr">🥰 萌系</span>
+                        <p>S1赛季限定，双分支进化，可选择不同路线</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ground" data-type="explore" data-name="石肤蜥" data-evolution="石肤蜥进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/石肤蜥进化链/石肤蜥（本来的样子）.png" alt="石肤蜥">
+                    </div>
+                    <div class="pet-info">
+                        <h3>石肤蜥</h3>
+                        <span class="pet-attr">🏔️ 土系</span>
+                        <p>土系精灵，可攀越高山地形，探索必备</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="dark" data-type="mount" data-name="恶魔叮" data-evolution="恶魔叮进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/恶魔叮进化链/恶魔叮.png" alt="恶魔叮">
+                    </div>
+                    <div class="pet-info">
+                        <h3>恶魔叮</h3>
+                        <span class="pet-attr">🌑 恶系</span>
+                        <p>飞行坐骑，夜间捕捉获得，快速移动必备</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="pve" data-name="翡翠水母" data-evolution="翡翠水母进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/翡翠水母进化链/翡翠水母.png" alt="翡翠水母">
+                    </div>
+                    <div class="pet-info">
+                        <h3>翡翠水母</h3>
+                        <span class="pet-attr">💧 水系</span>
+                        <p>水系辅助，可提供治疗和增益效果</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="ice" data-type="pve" data-name="布鲁斯" data-evolution="布鲁斯进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/布鲁斯进化链/布鲁斯.png" alt="布鲁斯">
+                    </div>
+                    <div class="pet-info">
+                        <h3>布鲁斯</h3>
+                        <span class="pet-attr">❄️ 冰系</span>
+                        <p>冰系精灵，可进化为冰钻布鲁斯或雪顶布鲁斯</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="explore" data-name="海豹战士" data-evolution="海豹战士进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/海豹战士进化链/海豹战士.png" alt="海豹战士">
+                    </div>
+                    <div class="pet-info">
+                        <h3>海豹战士</h3>
+                        <span class="pet-attr">💧 水系</span>
+                        <p>水系战士，可进化为海豹船长，水系地图探索</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="mechan" data-type="pvp" data-name="布是石" data-evolution="布是石进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/布是石进化链/布是石.png" alt="布是石">
+                    </div>
+                    <div class="pet-info">
+                        <h3>布是石</h3>
+                        <span class="pet-attr">⚙️ 机械系</span>
+                        <p>机械系精灵，高防御，可进化为迷嶂布莱克</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="grass" data-type="pve" data-name="蹦蹦花" data-evolution="蹦蹦种子进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/蹦蹦种子进化链/蹦蹦花（彩玉球）.png" alt="蹦蹦花">
+                    </div>
+                    <div class="pet-info">
+                        <h3>蹦蹦花</h3>
+                        <span class="pet-attr">🌿 草系</span>
+                        <p>草系精灵，多形态分支进化，不同外观选择</p>
+                    </div>
+                </div>
+                <div class="pet-card" data-attr="water" data-type="explore" data-name="风铃鲨" data-evolution="风铃鲨进化链.zip">
+                    <div class="pet-image">
+                        <img src="image/1/风铃鲨进化链/风铃鲨.png" alt="风铃鲨">
+                    </div>
+                    <div class="pet-info">
+                        <h3>风铃鲨</h3>
+                        <span class="pet-attr">💧 水系</span>
+                        <p>水系鲨鱼，可进化为彩蝶鲨或神谕鲨</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <button class="pagination-btn" id="prevPage" disabled>‹</button>
+                <span class="page-indicator" id="pageIndicator">第 1 / 4 页</span>
+                <button class="pagination-btn" id="nextPage">›</button>
+            </div>
+        </section>
+
+        <div class="pet-modal" id="petModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">✕</button>
+                <div class="modal-header">
+                    <img id="modalPetImage" src="" alt="">
+                    <div>
+                        <h2 id="modalPetName"></h2>
+                        <span id="modalPetAttr"></span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="modalPetDesc"></p>
+                    <div class="modal-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">属性</span>
+                            <span id="modalAttr"></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">类型</span>
+                            <span id="modalType"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="downloadEvolution" class="download-btn" download>📥 下载进化路线</a>
+                    <button class="close-btn" id="modalCloseBtn">关闭</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="guide" class="guide-section">
+            <div class="section-header">
+                <h2>🎮 新手攻略</h2>
+            </div>
+
+            <div class="guide-content">
+                <div class="guide-card">
+                    <h3>第一步：入坑须知</h3>
+                    <div class="guide-step">
+                        <p>洛克王国手游由魔方工作室原班人马开发，采用虚幻引擎重制。488只精灵全部在野外免费获取，零氪可集齐图鉴。</p>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <h3>第二步：初始精灵选择</h3>
+                    <div class="starter-pets">
+                        <div class="starter-item">
+                            <img src="image/1/火花/火花.png" alt="火花">
+                            <h4>火花</h4>
+                            <p>高爆发输出 · 特性「助燃」</p>
+                        </div>
+                        <div class="starter-item">
+                            <img src="image/1/水蓝蓝进化链/水蓝蓝.png" alt="水蓝蓝">
+                            <h4>水蓝蓝</h4>
+                            <p>高生命续航 · 特性「浸润」</p>
+                        </div>
+                        <div class="starter-item">
+                            <img src="image/1/喵喵/喵喵.png" alt="喵喵">
+                            <h4>喵喵</h4>
+                            <p>均衡通用 · 特性「氧循环」</p>
+                        </div>
+                    </div>
+                    <p class="tip">💡 选喜欢的即可，三只后期均可复刻捕捉，无需为强度焦虑</p>
+                </div>
+
+                <div class="guide-card">
+                    <h3>第三步：0-30级速冲路线</h3>
+                    <div class="route-timeline">
+                        <div class="route-item">
+                            <span class="route-step">1-10级</span>
+                            <p>完成新手教程，跟随主线任务</p>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-step">10-20级</span>
+                            <p>推进主线，顺手开图和抓新宠</p>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-step">20-30级</span>
+                            <p>解锁家园获得资源加成，抓罗隐</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <h3>⚠️ 新手避坑清单</h3>
+                    <div class="avoid-list">
+                        <div class="avoid-item">
+                            <span class="avoid-icon">❌</span>
+                            <span>前期购买捕光球导致金币紧缺</span>
+                        </div>
+                        <div class="avoid-item">
+                            <span class="avoid-icon">❌</span>
+                            <span>盲目刷绅士鸡/小骨龙，效率极低</span>
+                        </div>
+                        <div class="avoid-item">
+                            <span class="avoid-icon">✅</span>
+                            <span>遗迹必须捡古币，可换国王球</span>
+                        </div>
+                        <div class="avoid-item">
+                            <span class="avoid-icon">✅</span>
+                            <span>果树一定要打标记方便回刷果子</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="battle" class="battle-section">
+            <div class="section-header">
+                <h2>⚔️ 战斗攻略</h2>
+            </div>
+
+            <div class="battle-content">
+                <div class="battle-card">
+                    <h3>🔥 属性克制关系一览</h3>
+                    <div class="type-chart">
+                        <div class="attr-grid">
+                            <div class="attr-card">
+                                <h4>🔥 火</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">草、冰、虫、机械</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">火、草、冰、虫、机械</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">水、地、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>💧 水</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">火、地、石</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">水、火、冰、机械</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">草、电、神草</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>🌿 草</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">水、地、石</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">草、水、电、地</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">火、冰、毒、翼、虫、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>⚡ 电</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">水、翼</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">电、草、龙、神草</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">地、神火/神水/神草</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>❄️ 冰</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">草、龙、翼</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">冰、火、水、机械</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">火、武、机械、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>� 龙</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">龙</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">草、火、水、电、翼</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">龙、冰、萌、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>💀 幽</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">萌、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">毒、虫、恶、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">光、恶、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>👻 毒</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">草、萌</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">毒、草、冰、虫、恶</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">地、萌、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>🐛 虫</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">草、萌、恶</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">草、冰、虫、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">火、武、翼、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>🦅 翼</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">草、虫、武</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">草、冰、虫、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">电、冰、石、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>👿 恶</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">萌、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">毒、虫、恶、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">武、光、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>✨ 光</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">恶、幽</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">光、萌、恶</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">虫、萌、神草</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>💖 萌</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">毒、武</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">萌、草、冰、虫</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">恶、幽、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>👊 武</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">普通、石、冰、恶、机械</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">武、草、冰、虫</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">翼、萌、神草</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>⚙️ 机械</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">石、冰、翼</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">机械（几乎全抗，只怕火水雷）</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">火、水、电、神火</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>🌍 地</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">火、电、毒、机械、石</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">地、火、冰、毒、石</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">水、草、冰、神水</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>🔮 幻</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">毒、萌、恶</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">幻、草、冰、虫</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">武、光、神草</span></div>
+                            </div>
+                            <div class="attr-card">
+                                <h4>⚪ 普通</h4>
+                                <div class="attr-item"><span class="attr-label">克制：</span><span class="attr-value">无</span></div>
+                                <div class="attr-item"><span class="attr-label">抵抗：</span><span class="attr-value">无</span></div>
+                                <div class="attr-item"><span class="attr-label">被克：</span><span class="attr-value highlight">武、神火/神水/神草</span></div>
+                            </div>
+                        </div>
+                        <div class="chart-note">
+                            <p>💡 <strong>伤害计算规则：</strong>单属性克制伤害×2，被抵抗÷2；双属性克制×3，双抵抗÷3</p>
+                            <div class="mnemonic">
+                                <h5>📝 口诀速记</h5>
+                                <ul>
+                                    <li>三神循环：神火克神草，神草克神水，神水克神火</li>
+                                    <li>基础三系：草克水、水克火、火克草</li>
+                                    <li>光幽互克，萌恶互克；龙怕冰萌龙；机械怕水火电；地克电毒火；武克普石恶</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-card">
+                    <h3>PVE阵容推荐</h3>
+                    <div class="team-list">
+                        <div class="team-item">
+                            <h4>速攻流</h4>
+                            <p>音速犬（开局压制）+ 克制BOSS的对应属性精灵</p>
+                        </div>
+                        <div class="team-item">
+                            <h4>低耗连击流</h4>
+                            <p>鸭吉吉（核心）+ 怒气/连击联动伙伴</p>
+                        </div>
+                        <div class="team-item">
+                            <h4>后期成长流</h4>
+                            <p>瞌睡王（能量累积）+ 防反类反伤精灵+回复续航</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-card">
+                    <h3>BOSS攻克指南：翼王</h3>
+                    <div class="boss-guide">
+                        <div class="boss-info">
+                            <img src="image/1/里奥进化链/圣羽翼王.png" alt="翼王">
+                            <div class="boss-stats">
+                                <p>等级：34级+ · 完成魔法手册前六章解锁</p>
+                                <p>弱点：冰系、电系</p>
+                            </div>
+                        </div>
+                        <div class="boss-strategy">
+                            <h4>推荐精灵：刺灰虫</h4>
+                            <p>技能搭配：甩水 + 毒雾</p>
+                            <p>打法：进入对局用甩水，每三轮用甩水累积四次后放毒雾，挂机两回合过关</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore" class="explore-section">
+            <div class="section-header">
+                <h2>🗺️ 地图探索</h2>
+            </div>
+
+            <div class="explore-content">
+                <div class="map-regions">
+                    <div class="region-card">
+                        <h3>🌴 南部区域（月牙镇）</h3>
+                        <p>推荐等级：1-20级</p>
+                        <p>精灵等级：低等级精灵</p>
+                        <p>Boss等级：约20级</p>
+                        <p class="region-tips">✨ 新手起步区域，完成主线熟悉操作</p>
+                    </div>
+                    <div class="region-card">
+                        <h3>🏜️ 中部沙地地带</h3>
+                        <p>推荐等级：20-40级</p>
+                        <p>精灵等级：约40级</p>
+                        <p>Boss等级：约40-50级</p>
+                        <p class="region-tips">✨ 注意收集天空星星解锁任务与奖励</p>
+                    </div>
+                    <div class="region-card">
+                        <h3>❄️ 北部雪原</h3>
+                        <p>推荐等级：40级+</p>
+                        <p>精灵等级：60级以上</p>
+                        <p>Boss等级：高达80级</p>
+                        <p class="region-tips">✨ 建议用飞行坐骑快速移动</p>
+                    </div>
+                </div>
+
+                <div class="resource-guide">
+                    <h3>🎁 资源收集指南</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">📦</span>
+                            <div>
+                                <h4>地系宝箱</h4>
+                                <p>位置：农庄东南侧遗迹旁</p>
+                                <p>开启方式：地系精灵投掷</p>
+                                <p>奖励：灵碎+无花果</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🪙</span>
+                            <div>
+                                <h4>古币</h4>
+                                <p>位置：遗迹各处</p>
+                                <p>用途：兑换国王球、高级球</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">💎</span>
+                            <div>
+                                <h4>光明石</h4>
+                                <p>位置：奇妙屋、纪念碑</p>
+                                <p>用途：精灵升级</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mount" class="mount-section">
+            <div class="section-header">
+                <h2>🐎 骑乘与代步</h2>
+            </div>
+
+            <div class="mount-content">
+                <div class="mount-grid">
+                    <div class="mount-card">
+                        <div class="mount-image">
+                            <img src="image/1/音速犬/音速犬.png" alt="音速犬">
+                        </div>
+                        <div class="mount-info">
+                            <h3>音速犬</h3>
+                            <span class="mount-type">陆地+水域加速</span>
+                            <p>获取途径：新手村野外捕捉→进化音速犬</p>
+                        </div>
+                    </div>
+                    <div class="mount-card">
+                        <div class="mount-image">
+                            <img src="image/1/水蓝蓝进化链/水灵.png" alt="水灵">
+                        </div>
+                        <div class="mount-info">
+                            <h3>水灵</h3>
+                            <span class="mount-type">水系专属骑乘</span>
+                            <p>获取途径：水蓝蓝进化→波波拉→水灵</p>
+                        </div>
+                    </div>
+                    <div class="mount-card">
+                        <div class="mount-image">
+                            <img src="image/1/恶魔叮进化链/恶魔叮.png" alt="恶魔叮">
+                        </div>
+                        <div class="mount-info">
+                            <h3>恶魔叮</h3>
+                            <span class="mount-type">飞行能力</span>
+                            <p>获取途径：夜间遭遇捕捉</p>
+                        </div>
+                    </div>
+                    <div class="mount-card">
+                        <div class="mount-image">
+                            <img src="image/1/石肤蜥进化链/石肤蜥（本来的样子）.png" alt="石肤蜥">
+                        </div>
+                        <div class="mount-info">
+                            <h3>石肤蜥</h3>
+                            <span class="mount-type">攀越高山</span>
+                            <p>获取途径：拉布朗矿山捕捉</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mount-tips">
+                    <h3>🎯 骑乘小贴士</h3>
+                    <ul>
+                        <li>优先捕捉飞行类精灵，可快速跨越地形障碍</li>
+                        <li>水系精灵可在水域自由通行，探索更多隐藏区域</li>
+                        <li>按顺序抓捕：冬羽雀→鸭吉吉→电咩咩→护主犬→绅士鸡</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="resources-section">
+            <div class="section-header">
+                <h2>💰 资源管理</h2>
+            </div>
+
+            <div class="resources-content">
+                <div class="resource-category">
+                    <h3>💎 免费钻石获取</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">📅</span>
+                            <div>
+                                <h4>月度签到</h4>
+                                <p>累计可获得近200洛克钻</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📝</span>
+                            <div>
+                                <h4>每日任务</h4>
+                                <p>一天最多2钻，周末翻倍</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🎯</span>
+                            <div>
+                                <h4>钻石任务</h4>
+                                <p>完成9种钻石任务可领2钻</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">👥</span>
+                            <div>
+                                <h4>邀请好友</h4>
+                                <p>分享游戏邀请好友简单领钻</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-category">
+                    <h3>🪙 金币获取途径</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">🚢</span>
+                            <div>
+                                <h4>洛克大航海</h4>
+                                <p>地点：跳跳集市右侧，大量洛克贝</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🏪</span>
+                            <div>
+                                <h4>商人乔巴兑换</h4>
+                                <p>可用作物/能源之心兑换</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📜</span>
+                            <div>
+                                <h4>每日/副本任务</h4>
+                                <p>完成任务获得少量洛克贝</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-category">
+                    <h3>✨ 稀有资源追踪</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">💠</span>
+                            <div>
+                                <h4>天使草</h4>
+                                <p>位置：蓝雨峰/新双崖冰原裂隙</p>
+                                <p>提示：黄昏刷新率+30%</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">⛏️</span>
+                            <div>
+                                <h4>矿石</h4>
+                                <p>位置：拉布朗矿山/水晶矿场</p>
+                                <p>提示：金镐头可提速采集</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📿</span>
+                            <div>
+                                <h4>远古符文</h4>
+                                <p>用途：精灵性格改造/成长提升</p>
+                                <p>提示：优先给主力精灵使用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="season" class="season-section">
+            <div class="section-header">
+                <h2>🎯 赛季活动</h2>
+            </div>
+
+            <div class="season-content">
+                <div class="current-season">
+                    <div class="season-badge">S1赛季</div>
+                    <h3>暗夜拾光</h3>
+                    <span class="season-period">2026.3.26 - 2026.5.21</span>
+                </div>
+
+                <div class="season-highlights">
+                    <div class="highlight-card">
+                        <img src="image/1/帕尔萨斯/龙息帕尔.png" alt="龙息帕尔">
+                        <div>
+                            <h4>传说精灵「龙息帕尔」</h4>
+                            <p>免费领取，完成赛季委托即可获得</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="season-rewards">
+                    <h3>赛季限定精灵（8只）</h3>
+                    <div class="season-pets-grid">
+                        <div class="season-pet-card">
+                            <img src="image/1/粉星仔进化链/粉星仔.png" alt="粉星仔">
+                            <span>粉星仔</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/粉粉星进化链/粉粉星.png" alt="粉粉星">
+                            <span>粉粉星</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/月牙雪熊进化链/月牙雪熊.png" alt="月牙雪熊">
+                            <span>月牙雪熊</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/空空颅进化链/空空颅.png" alt="空空颅">
+                            <span>空空颅</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/双灯鱼/双灯鱼.png" alt="双灯鱼">
+                            <span>双灯鱼</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/柴渣虫进化链/柴渣虫.png" alt="柴渣虫">
+                            <span>柴渣虫</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/嗜光嗡嗡进化链/嗜光嗡嗡.png" alt="嗜光嗡嗡">
+                            <span>嗜光嗡嗡</span>
+                        </div>
+                        <div class="season-pet-card">
+                            <img src="image/1/贝瑟进化链/贝瑟.png" alt="贝瑟">
+                            <span>贝瑟</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="season-tips">
+                    <h3>📌 赛季小贴士</h3>
+                    <ul>
+                        <li>赛季限定精灵需在"眠枭庇护所"周边捕捉</li>
+                        <li>保持属性循环，避免重置计数</li>
+                        <li>赛季结束（5月21日）后限定精灵大概率绝版</li>
+                        <li>通行证奖励建议优先兑换传说精灵碎片</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="community" class="community-section">
+            <div class="section-header">
+                <h2>👥 玩家社区</h2>
+            </div>
+
+            <div class="community-content">
+                <div class="forum-section">
+                    <div class="section-header-row">
+                        <h3>🔥 热门话题</h3>
+                        <a href="all_topics.html" class="view-all">查看全部 ›</a>
+                    </div>
+                    <div class="forum-list">
+                        <div class="forum-item" onclick="location.href='topic.html?id=guide-30level'">
+                            <span class="forum-tag guide-tag">攻略</span>
+                            <div class="forum-content">
+                                <span class="forum-title">【攻略】零氪速冲30级全流程攻略</span>
+                                <span class="forum-preview">新手必备！从零开始的洛克王国冒险之旅...</span>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="reply-count">💬 1.2k</span>
+                                <span class="time">3天前</span>
+                            </div>
+                        </div>
+                        <div class="forum-item" onclick="location.href='topic.html?id=discuss-start'">
+                            <span class="forum-tag discuss-tag">讨论</span>
+                            <div class="forum-content">
+                                <span class="forum-title">【讨论】初始精灵选择哪个好？</span>
+                                <span class="forum-preview">火花、水蓝蓝、喵喵三选一...</span>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="reply-count">💬 892</span>
+                                <span class="time">2天前</span>
+                            </div>
+                        </div>
+                        <div class="forum-item" onclick="location.href='topic.html?id=share-wolf'">
+                            <span class="forum-tag share-tag">分享</span>
+                            <div class="forum-content">
+                                <span class="forum-title">【分享】抓到异色狼王啦！</span>
+                                <span class="forum-preview">蹲了三天终于抓到，异色真的太帅了！</span>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="reply-count">💬 567</span>
+                                <span class="time">1天前</span>
+                            </div>
+                        </div>
+                        <div class="forum-item" onclick="location.href='topic.html?id=help-wing'">
+                            <span class="forum-tag help-tag">求助</span>
+                            <div class="forum-content">
+                                <span class="forum-title">【求助】翼王BOSS怎么打？</span>
+                                <span class="forum-preview">卡在翼王这里了，求大佬指点阵容搭配...</span>
+                            </div>
+                            <div class="forum-meta">
+                                <span class="reply-count">💬 423</span>
+                                <span class="time">12小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-topics">
+                        <a href="all_topics.html" class="more-link">🔍 查看更多话题 ›</a>
+                    </div>
+                </div>
+
+                <div class="contribution-section">
+                    <div class="section-header-row">
+                        <h3>✍️ 攻略投稿</h3>
+                        <span class="reward-badge">🎁 投稿奖励</span>
+                    </div>
+                    <div class="contribution-form">
+                        <div class="form-group">
+                            <label>选择分类</label>
+                            <select class="category-select">
+                                <option value="guide">📖 攻略教程</option>
+                                <option value="team">⚔️ 阵容分享</option>
+                                <option value="discover">🗺️ 探索发现</option>
+                                <option value="event">🎮 活动攻略</option>
+                                <option value="other">📝 其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>标题</label>
+                            <input type="text" placeholder="请输入攻略标题（如：【攻略】零氪速冲30级）" id="contribTitle">
+                        </div>
+                        <div class="form-group">
+                            <label>内容</label>
+                            <textarea placeholder="详细攻略内容...&#10;&#10;建议包含：&#10;✅ 核心思路&#10;✅ 步骤流程&#10;✅ 阵容搭配&#10;✅ 注意事项" id="contribContent"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>联系方式（选填）</label>
+                            <input type="text" placeholder="QQ号或微信号，方便联系发奖" id="contribContact">
+                        </div>
+                        <div class="form-tips">
+                        
+                          
+                        </div>
+                        <button class="submit-btn" onclick="submitContribution()">提交攻略</button>
+                    </div>
+                    <div class="reward-info">
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>洛克王国手游攻略站 - 最全最及时的游戏攻略</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速导航</h4>
+                <a href="#home">首页</a>
+                <a href="#pets">宠物图鉴</a>
+                <a href="#guide">新手攻略</a>
+                <a href="#battle">战斗攻略</a>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>邮箱：contact@lockekg.com</p>
+                <p>QQ群：123456789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 洛克王国手游攻略站 · 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
